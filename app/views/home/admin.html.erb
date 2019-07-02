@@ -1,0 +1,19 @@
+<div>admin</div>
+
+<%= form_with(url: save_page_url,model: Page.first, local: true) do |form| %>
+    <%= hidden_field_tag :template_id, params[:id] %>
+    
+    <div class="form-group">
+        <%= form.text_area(:data, size: '80x40', class: 'form-control', id: 'email_template_body') %>
+    </div>
+    <%= form.submit 'Publish' , class: "btn btn-primary"%>
+    <%= form.submit 'Save' , class: "btn btn-primary"%>
+
+<% end %>
+
+
+<%= link_to 'Re-sync with view',resync_path %>
+
+<div>
+<%= @data.html_safe %>
+</div>
